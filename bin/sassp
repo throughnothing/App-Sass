@@ -9,7 +9,7 @@ use Text::Sass;
 
 # ABSTRACT: sass command-line tool
 
-my ($sass, %sass) = ( Text::Sass->new );
+my ($sass, %opts) = ( Text::Sass->new );
 GetOptions(\%opts, "--watch=s", "--update=s", "--help");
 die pod2usage if $opts{help} || !(keys %opts || @ARGV);
 
@@ -58,6 +58,8 @@ sub _split_dir {
     $_ =~ s{([^/])$}{$1/} for @parts; # make sure they end with /
     return @parts;
 }
+
+# PODNAME: sassp
 
 __END__
 
